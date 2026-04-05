@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goodbrand Fitness — Women's Gym · South Surrey, BC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon: #7c1d2e;
+    --maroon-light: #9a2a3e;
+    --maroon-dark: #5c1522;
+    --maroon-pale: #f7eef0;
+    --black: #111010;
+    --off-black: #1c1a1a;
+    --white: #ffffff;
+    --off-white: #faf8f7;
+    --warm-gray: #6e6a68;
+    --light-gray: #ccc8c4;
+    --sand: #f0ece8;
+    --border: rgba(124,29,46,0.1);
+    --border-dark: rgba(255,255,255,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--off-white);
+    color: var(--black);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── PROMO BAR ── */
+  .promo-bar {
+    background: var(--maroon);
+    color: var(--white);
+    text-align: center;
+    padding: 11px 20px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .promo-bar a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: underline;
+    margin-left: 8px;
+    transition: color 0.2s;
+  }
+
+  .promo-bar a:hover { color: #fff; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 52px;
+    height: 76px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 12px rgba(0,0,0,0.05);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 48px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-free {
+    background: var(--maroon) !important;
+    color: var(--white) !important;
+    padding: 11px 24px;
+    letter-spacing: 0.14em !important;
+    transition: background 0.2s !important;
+    border-radius: 2px;
+  }
+
+  .nav-free:hover { background: var(--maroon-light) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 118px);
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--off-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle diagonal texture */
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,
+      transparent 36px
+    );
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--maroon-light);
+    margin-bottom: 28px;
+    font-weight: 600;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.1s ease forwards;
+  }
+
+  .eyebrow-line { width: 28px; height: 1.5px; background: var(--maroon); }
+
+  .hero-title {
+    font-size: clamp(44px, 5.5vw, 76px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 10px;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s ease forwards;
+  }
+
+  .hero-title-italic {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(36px, 4.5vw, 62px);
+    color: var(--maroon-light);
+    display: block;
+    margin-bottom: 32px;
+    line-height: 1.1;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.28s ease forwards;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    max-width: 420px;
+    margin-bottom: 44px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.36s ease forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.44s ease forwards;
+  }
+
+  .btn-maroon {
+    background: var(--maroon);
+    color: var(--white);
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-maroon:hover { background: var(--maroon-light); transform: translateY(-2px); }
+
+  .btn-outline-white {
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.7);
+    padding: 15px 28px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline-white:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    margin-top: 52px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.52s ease forwards;
+  }
+
+  .h-stat-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .h-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 5px;
+    font-weight: 600;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    background: var(--maroon);
+    color: var(--white);
+    padding: 14px 20px;
+  }
+
+  .badge-top {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .badge-bottom {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee {
+    background: var(--maroon);
+    padding: 13px 0;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    animation: marqueeScroll 24s linear infinite;
+    white-space: nowrap;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 18px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+  }
+
+  .marquee-sep {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    flex-shrink: 0;
+  }
+
+  @keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION HELPERS ── */
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+
+  .section-eyebrow::before { content: ''; width: 22px; height: 1.5px; background: var(--maroon); }
+
+  /* ── ABOUT ── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--white);
+  }
+
+  .about-img-wrap {
+    position: relative;
+    min-height: 580px;
+    overflow: hidden;
+  }
+
+  .about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+  }
+
+  .about-img-wrap:hover .about-img { transform: scale(1.03); }
+
+  .about-content {
+    padding: 80px 68px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+  }
+
+  .about-title {
+    font-size: clamp(30px, 3.2vw, 46px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--black);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .about-title em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--maroon);
+    display: block;
+    font-size: 0.88em;
+    margin-bottom: 24px;
+  }
+
+  .about-text {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--warm-gray);
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+
+  .about-text strong { color: var(--black); font-weight: 700; }
+
+  .about-signature {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .sig-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--maroon-pale);
+    border: 2px solid var(--maroon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 16px;
+    color: var(--maroon);
+    flex-shrink: 0;
+  }
+
+  .sig-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .sig-role {
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* ── CLASSES ── */
+  .classes {
+    padding: 100px 52px;
+    background: var(--off-white);
+  }
+
+  .classes-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 4.5vw, 58px);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--black);
+    letter-spacing: -0.01em;
+  }
+
+  .section-title em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--maroon);
+    display: block;
+    font-size: 0.8em;
+    margin-top: 4px;
+  }
+
+  .see-all-link {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1.5px solid rgba(124,29,46,0.25);
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+    transition: gap 0.3s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  .see-all-link:hover { gap: 14px; border-color: var(--maroon); }
+  .see-all-link::after { content: '→'; }
+
+  .classes-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 3px;
+  }
+
+  .class-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .class-card.featured { grid-row: span 2; }
+
+  .class-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  .class-card:hover .class-img { transform: scale(1.06); }
+
+  .class-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(17,16,16,0.9) 0%, rgba(17,16,16,0.15) 65%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    transition: background 0.3s;
+  }
+
+  .class-card:hover .class-overlay {
+    background: linear-gradient(to top, rgba(17,16,16,0.95) 0%, rgba(17,16,16,0.4) 65%, rgba(17,16,16,0.05) 100%);
+  }
+
+  .class-badge {
+    display: inline-block;
+    background: var(--maroon);
+    color: var(--white);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    width: fit-content;
+    font-weight: 700;
+  }
+
+  .class-name {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  .class-card.featured .class-name { font-size: 32px; }
+
+  .class-detail {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  /* ── FEARS / HOOK ── */
+  .hook-section {
+    background: var(--maroon);
+    padding: 80px 52px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hook-left {}
+
+  .hook-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .hook-title em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    display: block;
+    font-size: 0.85em;
+  }
+
+  .hook-right {}
+
+  .hook-intro {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .fear-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .fear-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .fear-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .hook-cta {
+    background: var(--white);
+    color: var(--maroon);
+    padding: 15px 32px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .hook-cta:hover { background: var(--off-white); transform: translateY(-2px); }
+
+  /* ── MEMBERSHIP ── */
+  .membership {
+    padding: 100px 52px;
+    background: var(--white);
+  }
+
+  .membership-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .membership-header .section-eyebrow { justify-content: center; }
+
+  .membership-title {
+    font-size: clamp(36px, 4.5vw, 56px);
+    font-weight: 900;
+    color: var(--black);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+
+  .membership-title em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--maroon);
+    font-size: 0.8em;
+    display: block;
+    margin-top: 6px;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .plan-card {
+    border: 1.5px solid rgba(0,0,0,0.08);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    background: var(--off-white);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+
+  .plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+  .plan-card.featured {
+    background: var(--off-black);
+    border-color: var(--maroon);
+  }
+
+  .plan-popular {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--maroon);
+    color: var(--white);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+
+  .plan-price {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  .plan-card.featured .plan-price { color: var(--white); }
+
+  .plan-period {
+    font-size: 11px;
+    color: var(--light-gray);
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+
+  .plan-card.featured .plan-period { color: rgba(255,255,255,0.35); }
+
+  .plan-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.07); margin-bottom: 24px; }
+  .plan-card.featured .plan-divider { background: rgba(255,255,255,0.08); }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+    flex: 1;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--warm-gray);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .plan-card.featured .plan-features li { color: rgba(255,255,255,0.55); }
+
+  .pcheck {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--maroon-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .plan-card.featured .pcheck { background: rgba(124,29,46,0.3); }
+
+  .plan-cta {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .plan-cta-outline { border: 1.5px solid rgba(0,0,0,0.15); color: var(--black); }
+  .plan-cta-outline:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+  .plan-cta-filled { background: var(--maroon); color: var(--white); border: 1.5px solid var(--maroon); }
+  .plan-cta-filled:hover { background: var(--maroon-light); border-color: var(--maroon-light); }
+
+  /* ── GALLERY ── */
+  .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 260px 260px;
+    gap: 3px;
+  }
+
+  .gal-item { overflow: hidden; position: relative; }
+  .gal-item.tall { grid-row: span 2; }
+  .gal-item.wide { grid-column: span 2; }
+
+  .gal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  .gal-item:hover .gal-img { transform: scale(1.06); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    padding: 100px 52px;
+    background: var(--sand);
+  }
+
+  .test-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .test-header .section-eyebrow { justify-content: center; margin-bottom: 16px; }
+
+  .test-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--black);
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+
+  .test-title em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--maroon);
+    display: block;
+    font-size: 0.85em;
+  }
+
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .test-card {
+    background: var(--white);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-top: 3px solid var(--maroon);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .test-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+  }
+
+  .test-stars { display: flex; gap: 3px; }
+  .star { color: var(--maroon); font-size: 14px; }
+
+  .test-quote {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--off-black);
+    flex: 1;
+  }
+
+  .test-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .author-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--maroon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--white);
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .author-name { font-size: 13px; font-weight: 700; color: var(--black); }
+  .author-note { font-size: 11px; color: var(--warm-gray); margin-top: 2px; letter-spacing: 0.04em; }
+
+  /* ── CTA ── */
+  .cta-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .cta-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(17,16,16,0.8);
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 80px 52px;
+    max-width: 680px;
+  }
+
+  .cta-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--maroon-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-weight: 700;
+  }
+
+  .cta-eyebrow::before, .cta-eyebrow::after { content: ''; width: 24px; height: 1.5px; background: var(--maroon); }
+
+  .cta-title {
+    font-size: clamp(38px, 5.5vw, 68px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-title em {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--maroon-light);
+    display: block;
+    font-size: 0.8em;
+  }
+
+  .cta-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    max-width: 440px;
+    margin: 16px auto 44px;
+    font-weight: 300;
+  }
+
+  .cta-actions { display: flex; gap: 14px; justify-content: center; }
+
+  .btn-white-solid {
+    background: var(--white);
+    color: var(--maroon);
+    padding: 15px 34px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+
+  .btn-white-solid:hover { opacity: 0.88; }
+
+  .btn-maroon-outline {
+    border: 1.5px solid var(--maroon);
+    color: rgba(255,255,255,0.7);
+    padding: 15px 28px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-maroon-outline:hover { background: var(--maroon); color: var(--white); }
+
+  /* ── CONTACT STRIP ── */
+  .contact-strip {
+    background: var(--off-black);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  .contact-item {
+    background: var(--off-black);
+    padding: 40px 48px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(124,29,46,0.2);
+    border: 1px solid rgba(124,29,46,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-label {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--maroon-light);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .contact-value {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .contact-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 64px 52px 36px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 52px;
+  }
+
+  .footer-logo { height: 52px; width: auto; margin-bottom: 18px; display: block; filter: brightness(0) invert(1); }
+
+  .footer-brand p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.25);
+    max-width: 220px;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-col h4 {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-col ul a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.32);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: rgba(255,255,255,0.7); }
+
+  .footer-col ul li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.28);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.14);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promo-bar">
+  🏋️ Start our 6 Week Challenge today! <a href="https://www.goodbrandfitness.com/goodbrandfitness.com/6-week-challenge">Learn more →</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/StackwellDigital/goodbrandfitness/main/gbf.PNG" alt="Goodbrand Fitness">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="#membership">Membership</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.goodbrandfitness.com/free-trial" class="nav-free">Free Class</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      Women's Gym · South Surrey, BC
+    </div>
+    <h1 class="hero-title">BUILT FOR<br>EVERY WOMAN.</h1>
+    <span class="hero-title-italic">Strong. Confident. Connected.</span>
+    <p class="hero-desc">
+      Goodbrand Fitness is a safe, inclusive, and welcoming fitness community for all women — led by qualified, inspiring coaches who care about you beyond the workout.
+    </p>
+    <div class="hero-actions">
+      <a href="https://www.goodbrandfitness.com/free-trial" class="btn-maroon">Your First Class is Free</a>
+      <a href="#classes" class="btn-outline-white">View Classes</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="h-stat-num">13+</div>
+        <div class="h-stat-label">Class Types</div>
+      </div>
+      <div>
+        <div class="h-stat-num">7</div>
+        <div class="h-stat-label">Days a Week</div>
+      </div>
+      <div>
+        <div class="h-stat-num">5★</div>
+        <div class="h-stat-label">Community</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img"
+      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&auto=format&fit=crop&q=80"
+      alt="Women training at Goodbrand Fitness">
+    <div class="hero-badge">
+      <div class="badge-top">FREE</div>
+      <div class="badge-bottom">First Class</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-sep"></span>Bootcamp</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Strength & Conditioning</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Barre</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Zumba</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Personal Training</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Online Classes</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>6 Week Challenge</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>All Fitness Levels</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>South Surrey</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Bootcamp</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Strength & Conditioning</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Barre</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Zumba</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Personal Training</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>Online Classes</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>6 Week Challenge</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>All Fitness Levels</span>
+    <span class="marquee-item"><span class="marquee-sep"></span>South Surrey</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img-wrap">
+    <img class="about-img"
+      src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=900&auto=format&fit=crop&q=80"
+      alt="Goodbrand Fitness studio">
+  </div>
+  <div class="about-content">
+    <div class="section-eyebrow">Our Story</div>
+    <h2 class="about-title">A gym built around
+      <em>community & connection.</em>
+    </h2>
+    <p class="about-text">Goodbrand Fitness was created so that women could have a <strong>safe space to feel accepted and supported</strong> while achieving their fitness goals. Whether you're here for healthy weight loss, getting fit, or relieving stress — our encouraging and inclusive community will help you feel stronger than ever, both physically and mentally.</p>
+    <p class="about-text">We offer group fitness classes in-person at our South Surrey studio, live-streamed on Zoom, or as recorded workouts you can do on your schedule. Plus customized nutrition guides, our members-only community, and ongoing trainer support.</p>
+    <div class="about-signature">
+      <div class="sig-avatar">GG</div>
+      <div>
+        <div class="sig-name">Gabby Goodbrand</div>
+        <div class="sig-role">Founder · Certified Personal Trainer & Nutrition Specialist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section class="classes" id="classes">
+  <div class="classes-header">
+    <div>
+      <div class="section-eyebrow">What We Offer</div>
+      <h2 class="section-title">13+ Classes<em>7 days a week.</em></h2>
+    </div>
+    <a href="https://goodbrandfitness.com/classes" class="see-all-link">Full Schedule</a>
+  </div>
+  <div class="classes-grid">
+    <div class="class-card featured">
+      <img class="class-img"
+        src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=900&auto=format&fit=crop&q=80"
+        alt="Strength and Conditioning">
+      <div class="class-overlay">
+        <div class="class-badge">Most Popular</div>
+        <div class="class-name">STRENGTH &<br>CONDITIONING</div>
+        <div class="class-detail">All levels · Multiple times daily</div>
+      </div>
+    </div>
+    <div class="class-card">
+      <img class="class-img"
+        src="https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=700&auto=format&fit=crop&q=80"
+        alt="Bootcamp">
+      <div class="class-overlay">
+        <div class="class-badge">High Energy</div>
+        <div class="class-name">BOOTCAMP</div>
+        <div class="class-detail">All levels · Early AM & Evening</div>
+      </div>
+    </div>
+    <div class="class-card">
+      <img class="class-img"
+        src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=700&auto=format&fit=crop&q=80"
+        alt="Barre">
+      <div class="class-overlay">
+        <div class="class-badge">Low Impact</div>
+        <div class="class-name">BARRE</div>
+        <div class="class-detail">All levels · Lunch & Evening</div>
+      </div>
+    </div>
+    <div class="class-card">
+      <img class="class-img"
+        src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?w=700&auto=format&fit=crop&q=80"
+        alt="Zumba">
+      <div class="class-overlay">
+        <div class="class-badge">Dance Fitness</div>
+        <div class="class-name">ZUMBA</div>
+        <div class="class-detail">All levels · Evening sessions</div>
+      </div>
+    </div>
+    <div class="class-card">
+      <img class="class-img"
+        src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=700&auto=format&fit=crop&q=80"
+        alt="Online Classes">
+      <div class="class-overlay">
+        <div class="class-badge">Online & In-Person</div>
+        <div class="class-name">LIVE STREAM<br>& RECORDED</div>
+        <div class="class-detail">Work out from anywhere</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEARS HOOK -->
+<section class="hook-section">
+  <div class="hook-left">
+    <h2 class="hook-title">Can you relate<br>to any of these
+      <em>fears?</em>
+    </h2>
+  </div>
+  <div class="hook-right">
+    <p class="hook-intro">So many women feel this way before joining us. You are not alone — and this is exactly why Goodbrand exists.</p>
+    <ul class="fear-list">
+      <li class="fear-item">
+        <div class="fear-check"><svg width="9" height="9" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none"/></svg></div>
+        Feeling overwhelmed and struggling to find a fitness routine that works for you?
+      </li>
+      <li class="fear-item">
+        <div class="fear-check"><svg width="9" height="9" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none"/></svg></div>
+        Afraid that you're too out of shape and will be judged by others at the gym?
+      </li>
+      <li class="fear-item">
+        <div class="fear-check"><svg width="9" height="9" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" fill="none"/></svg></div>
+        Tired of big co-ed gyms where you feel out of place or invisible?
+      </li>
+    </ul>
+    <a href="https://www.goodbrandfitness.com/free-trial" class="hook-cta">I'm Ready to Be Fearless →</a>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="membership" id="membership">
+  <div class="membership-header">
+    <div class="section-eyebrow">Pricing</div>
+    <h2 class="membership-title">Multiple Ways to Join<em>Find what fits you.</em></h2>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name">Drop-In</div>
+      <div class="plan-price">$25</div>
+      <div class="plan-period">per class · no commitment</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>Any single class</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>No sign-up required</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>First class FREE</li>
+      </ul>
+      <a href="https://goodbrandfitness.com/pricing" class="plan-cta plan-cta-outline">Get Started</a>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-name">10 Class Pass</div>
+      <div class="plan-price">$199</div>
+      <div class="plan-period">10 classes · use any time</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>Any class format</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>In-person or online</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>No expiry</li>
+      </ul>
+      <a href="https://goodbrandfitness.com/pricing" class="plan-cta plan-cta-outline">Get Started</a>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-popular">Most Popular</div>
+      <div class="plan-name">Monthly Membership</div>
+      <div class="plan-price" style="color:var(--white);">$129</div>
+      <div class="plan-period">per month · unlimited classes</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon-light)" stroke-width="2" fill="none"/></svg></div>Unlimited group classes</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon-light)" stroke-width="2" fill="none"/></svg></div>In-person + live stream</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon-light)" stroke-width="2" fill="none"/></svg></div>Recorded workouts</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon-light)" stroke-width="2" fill="none"/></svg></div>Members-only community</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon-light)" stroke-width="2" fill="none"/></svg></div>Nutrition guides</li>
+      </ul>
+      <a href="https://goodbrandfitness.com/pricing" class="plan-cta plan-cta-filled">Join Now</a>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-name">6 Week Challenge</div>
+      <div class="plan-price">$199</div>
+      <div class="plan-period">6 weeks · all-in program</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>Structured 6-week plan</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>Goal-setting sessions</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>Community accountability</li>
+        <li><div class="pcheck"><svg width="8" height="8" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke="var(--maroon)" stroke-width="2" fill="none"/></svg></div>Teen membership available</li>
+      </ul>
+      <a href="https://goodbrandfitness.com/6-week-challenge" class="plan-cta plan-cta-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gal-item tall">
+    <img class="gal-img" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&auto=format&fit=crop&q=80" alt="Gym floor">
+  </div>
+  <div class="gal-item">
+    <img class="gal-img" src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?w=600&auto=format&fit=crop&q=80" alt="Weights">
+  </div>
+  <div class="gal-item">
+    <img class="gal-img" src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&auto=format&fit=crop&q=80" alt="Training">
+  </div>
+  <div class="gal-item wide">
+    <img class="gal-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&auto=format&fit=crop&q=80" alt="Group class">
+  </div>
+  <div class="gal-item">
+    <img class="gal-img" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&auto=format&fit=crop&q=80" alt="Cardio">
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-header">
+    <div class="section-eyebrow">Member Stories</div>
+    <h2 class="test-title">Real women.<em>Real results.</em></h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="test-quote">"Gabby has been amazing to work with. I have made SO much progress both physically and mentally. She's the only person I've come across who has hammered home the importance of balance — and I really think that has been the key to my success."</div>
+      <div class="test-author">
+        <div class="author-avatar">PG</div>
+        <div>
+          <div class="author-name">Prianka G.</div>
+          <div class="author-note">Monthly Member</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="test-quote">"I was nervous about working out because it's been awhile but they put me at ease right away. No pressure, workouts can be modified to suit you and you go at your own pace. They're all very welcoming and make you feel good about your progress."</div>
+      <div class="test-author">
+        <div class="author-avatar">SM</div>
+        <div>
+          <div class="author-name">Shelagh M.</div>
+          <div class="author-note">Monthly Member</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="test-quote">"I joined for their 6-Week Challenge and it has been an amazing experience. The sense of community, accountability, and accessibility sets this gym apart. The members are so friendly and welcoming — they even motivated me to attend 5:30am classes!"</div>
+      <div class="test-author">
+        <div class="author-avatar">LV</div>
+        <div>
+          <div class="author-name">Leah V.</div>
+          <div class="author-note">6 Week Challenge</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="test-quote">"I signed up for fitness and found friendships! I started attending in May 2021 to get ready for my wedding and I never looked better. But it wasn't even about that — my mental health was better, I had new friends, and was part of an amazing group of women."</div>
+      <div class="test-author">
+        <div class="author-avatar">MF</div>
+        <div>
+          <div class="author-name">Michelle F.</div>
+          <div class="author-note">Monthly Member</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="test-quote">"A fitness community that supports you beyond your imagination. All you have to do is decide to show up. Each one of us has our own starting point and level of fitness — Gabby and her crew make certain you're supported to give your best every time."</div>
+      <div class="test-author">
+        <div class="author-avatar">FK</div>
+        <div>
+          <div class="author-name">Fatima K.</div>
+          <div class="author-note">Monthly Member</div>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+      <div class="test-quote">"Amazing workouts! I love that I had the ability to go at my own pace without feeling like I had to keep up to anyone. The workouts are designed for all levels of strength and endurance — the group gives you the confidence boost that you need!"</div>
+      <div class="test-author">
+        <div class="author-avatar">HB</div>
+        <div>
+          <div class="author-name">H.B.</div>
+          <div class="author-note">Monthly Member</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <img class="cta-bg" src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?w=1800&auto=format&fit=crop&q=80" alt="Join Goodbrand Fitness">
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <div class="cta-eyebrow">Your first class is free</div>
+    <h2 class="cta-title">JOIN YOUR NEW<em>fitness family.</em></h2>
+    <p class="cta-text">Come try a class on us. No commitment, no judgment — just show up and experience what makes Goodbrand the best gym for women in South Surrey.</p>
+    <div class="cta-actions">
+      <a href="https://www.goodbrandfitness.com/free-trial" class="btn-white-solid">Book a Free Class</a>
+      <a href="https://goodbrandfitness.com/6-week-challenge" class="btn-maroon-outline">6 Week Challenge</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip" id="contact">
+  <div class="contact-item">
+    <div class="contact-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--maroon-light)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div>
+      <div class="contact-label">Location</div>
+      <div class="contact-value">28-3033 King George Blvd</div>
+      <div class="contact-sub">Surrey, BC · South Surrey / White Rock Area</div>
+    </div>
+  </div>
+  <div class="contact-item">
+    <div class="contact-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--maroon-light)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.29-1.29a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+    </div>
+    <div>
+      <div class="contact-label">Phone</div>
+      <div class="contact-value">778-873-7958</div>
+      <div class="contact-sub">Call or text anytime</div>
+    </div>
+  </div>
+  <div class="contact-item">
+    <div class="contact-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--maroon-light)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </div>
+    <div>
+      <div class="contact-label">Email</div>
+      <div class="contact-value">info@goodbrandfitness.com</div>
+      <div class="contact-sub">We respond within 24 hours</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img class="footer-logo" src="https://raw.githubusercontent.com/StackwellDigital/goodbrandfitness/main/gbf.PNG" alt="Goodbrand Fitness">
+      <p>A women's gym built on community, strength, and connection. Group fitness, personal training, and online classes in South Surrey, BC.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="https://goodbrandfitness.com/classes">Classes & Schedule</a></li>
+        <li><a href="https://goodbrandfitness.com/6-week-challenge">6 Week Challenge</a></li>
+        <li><a href="https://goodbrandfitness.com/personal-training">Personal Training</a></li>
+        <li><a href="https://goodbrandfitness.com/online-training">Online Training</a></li>
+        <li><a href="https://www.goodbrandfitness.com/free-trial">Free First Class</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="https://goodbrandfitness.com/about-us">About Gabby</a></li>
+        <li><a href="https://goodbrandfitness.com/pricing">Membership Pricing</a></li>
+        <li><a href="https://goodbrandfitness.com/products">Products</a></li>
+        <li><a href="https://goodbrandfitness.com/blog">Blog</a></li>
+        <li><a href="https://goodbrandfitness.com/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul>
+        <li>Early AM classes from 5:30am</li>
+        <li>Lunch hour classes available</li>
+        <li>Evening classes daily</li>
+        <li>7 days a week</li>
+        <li><a href="https://goodbrandfitness.com/classes">Full schedule →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Goodbrand Fitness. All Rights Reserved.</span>
+    <span>Website by Stackwell Digital</span>
+  </div>
+</footer>
+
+</body>
+</html>
